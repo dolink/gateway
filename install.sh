@@ -93,12 +93,18 @@ wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 sudo dpkg -i node_latest_armhf.deb > /dev/null;
 rm -f node_latest_armhf.*
 
-# Change the owner of /usr/local to $username
-echo -e "\n→ ${bold}Changing the owner of /usr/local to ${username}${normal}\n";
-sudo chown -R ${username} /usr/local
+###################################################################
+# Chown directories
+###################################################################
+
+echo -e "\n→ ${bold}Changing the owner of /usr/local/apps to ${username}${normal}\n";
+sudo chown -R ${username} /usr/local/apps
+
+echo -e "\n→ ${bold}Changing the owner of /usr/local/lib/node_modules to ${username}${normal}\n";
+sudo chown -R ${username} /usr/local/lib/node_modules
 
 ###################################################################
-# Install core npm packages
+# Install global core node packages
 ###################################################################
 echo -e "\n→ ${bold}[Node] Installing npd${normal}\n";
 su ${username} -c "npm install npd -g"
