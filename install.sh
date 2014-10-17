@@ -8,6 +8,7 @@ set -e
 bold=`tput bold`;
 normal=`tput sgr0`;
 space_left=`df | grep rootfs | awk '{print $3}'`;
+username=`users | awk '{print $1}'`;
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
@@ -58,16 +59,6 @@ echo 'Yes, do as I say!' | sudo apt-get -o DPkg::options=--force-remove-essentia
 echo -e "\n→ ${bold}Installing git${normal}\n";
 sudo apt-get -qq -y -f -m  install git > /dev/null;
 
-echo -e "\n→ ${bold}Installing node & npm${normal}\n";
-cd /tmp
-rm -f node_latest_armhf.*
-# wget http://nodejs.org/dist/latest/node-v0.10.26-linux-arm-pi.tar.gz
-# cd /usr/local
-# sudo tar xzvf ~/node-v0.10.26-linux-arm-pi.tar.gz  --strip=1
-wget http://node-arm.herokuapp.com/node_latest_armhf.deb
-sudo dpkg -i node_latest_armhf.deb > /dev/null;
-rm -f node_latest_armhf.*
-
 echo -e "\n→ ${bold}Installing ruby1.9.1-dev${normal}\n";
 sudo apt-get -qq -y -f -m  install ruby1.9.1-dev > /dev/null;
 
@@ -92,10 +83,27 @@ sudo gem install system-getifaddrs  --verbose --no-rdoc --no-ri > /dev/null;
 echo -e "\n→ ${bold}Installing gpac${normal}\n";
 sudo apt-get -qq -y -f -m install gpac > /dev/null;
 
+echo -e "\n→ ${bold}Installing node & npm${normal}\n";
+cd /tmp
+rm -f node_latest_armhf.*
+# wget http://nodejs.org/dist/latest/node-v0.10.26-linux-arm-pi.tar.gz
+# cd /usr/local
+# sudo tar xzvf ~/node-v0.10.26-linux-arm-pi.tar.gz  --strip=1
+wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+sudo dpkg -i node_latest_armhf.deb > /dev/null;
+rm -f node_latest_armhf.*
+
+# Change the owner of /usr/local to $username
+echo -e "\n→ ${bold}Changing the owner of /usr/local to ${username}${normal}\n";
+sudo chown -R ${username} /usr/local
+
 ###################################################################
 # Install core npm packages
 ###################################################################
 echo -e "\n→ ${bold}[Node] Installing npd${normal}\n";
-npm install npd -g
+su ${username} -c "npm install npd -g"
+
+echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
+su ${username} -c "npm install pm2 -g"
 
 echo -e "\n→ ${bold}Successful${normal}\n";
