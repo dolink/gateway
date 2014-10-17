@@ -112,4 +112,6 @@ su ${username} -c "npm install npd -g"
 echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
 
-echo -e "\n→ ${bold}Successful${normal}\n";
+echo -e "\n→ ${bold}Installing ollo...${normal}\n";
+su ${username} -c "npd install dolink/olloc"
+
