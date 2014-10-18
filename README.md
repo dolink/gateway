@@ -1,4 +1,4 @@
-olloc
-=====
+gateway
+=======
 
-Installer for the ollo client
+Installer for ollo gateway.
