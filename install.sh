@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run this script as root ie:
-# wget -O - https://raw.githubusercontent.com/dolink/olloc/master/install.sh | sudo bash
+# wget -O - https://raw.githubusercontent.com/dolink/gateway/master/install.sh | sudo bash
 
 set -e
 
@@ -113,5 +113,5 @@ echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
 
 echo -e "\n→ ${bold}Installing ollo...${normal}\n";
-su ${username} -c "npd install dolink/olloc"
+su ${username} -c "npd install https://bitbucket.org/dolink/gw"
 
