@@ -120,5 +120,5 @@ echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
 
 echo -e "\n→ ${bold}Installing ollo...${normal}\n";
-su ${username} -c "npd install https://bitbucket.org/dolink/gw.git"
+npd install https://bitbucket.org/dolink/gw.git
 
