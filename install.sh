@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run this script as root ie:
-# wget -O - https://raw.githubusercontent.com/dolink/gateway/master/install.sh | sudo bash
+# wget -O - https://raw.githubusercontent.com/dolink/installer/master/install.sh | sudo bash
 
 set -e
 
