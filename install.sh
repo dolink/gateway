@@ -107,13 +107,8 @@ sudo adduser $USER gpio
 # Chown directories
 ###################################################################
 
-echo -e "\n→ ${bold}Changing the owner of /usr/local/apps to ${username}${normal}\n";
-sudo mkdir -p /usr/local/apps
-sudo chown -R ${username} /usr/local/apps
-
-echo -e "\n→ ${bold}Changing the owner of /usr/local/lib/node_modules to ${username}${normal}\n";
-sudo mkdir -p /usr/local/lib/node_modules
-sudo chown -R ${username} /usr/local/lib/node_modules
+echo -e "\n→ ${bold}Changing the owner of /usr/local to ${username}${normal}\n";
+sudo chown -R ${username} /usr/local
 
 ###################################################################
 # Install global core node packages
