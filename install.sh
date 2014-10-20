@@ -29,12 +29,6 @@ sudo apt-get update > /dev/null;
 echo -e "\n→ ${bold}Installing python-software-properties${normal}\n";
 sudo apt-get -qq -y -f -m install python-software-properties > /dev/null;
 
-echo -e "\n→ ${bold}Adding git ppa${normal}\n";
-echo "" | sudo add-apt-repository ppa:git-core/ppa > /dev/null;
-
-echo -e "\n→ ${bold}Reupdating apt-get${normal}\n";
-sudo apt-get update > /dev/null;
-
 echo -e "\n→ ${bold}Installing ntpdate${normal}\n";
 sudo apt-get -qq -y -f -m install ntpdate > /dev/null;
 sudo /etc/init.d/ntp stop
