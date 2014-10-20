@@ -21,12 +21,19 @@ then
 	exit 1
 fi
 
+
 # Updating apt-get
 echo -e "\n→ ${bold}Updating apt-get${normal}\n";
 sudo apt-get update > /dev/null;
 
 echo -e "\n→ ${bold}Installing python-software-properties${normal}\n";
 sudo apt-get -qq -y -f -m install python-software-properties > /dev/null;
+
+echo -e "\n→ ${bold}Adding git ppa${normal}\n";
+echo "" | sudo add-apt-repository ppa:git-core/ppa > /dev/null;
+
+echo -e "\n→ ${bold}Reupdating apt-get${normal}\n";
+sudo apt-get update > /dev/null;
 
 echo -e "\n→ ${bold}Installing ntpdate${normal}\n";
 sudo apt-get -qq -y -f -m install ntpdate > /dev/null;
@@ -92,6 +99,15 @@ rm -f node_latest_armhf.*
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 sudo dpkg -i node_latest_armhf.deb > /dev/null;
 rm -f node_latest_armhf.*
+
+echo -e "\n→ ${bold}Installing gpio-admin${normal}\n";
+cd /tmp
+rm -fr quick2wire-gpio-admin
+git clone https://github.com/quick2wire/quick2wire-gpio-admin
+cd quick2wire-gpio-admin
+make
+make install
+sudo adduser $USER gpio
 
 ###################################################################
 # Chown directories
