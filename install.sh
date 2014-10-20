@@ -108,9 +108,11 @@ sudo adduser $USER gpio
 ###################################################################
 
 echo -e "\n→ ${bold}Changing the owner of /usr/local/apps to ${username}${normal}\n";
+sudo mkdir -p /usr/local/apps
 sudo chown -R ${username} /usr/local/apps
 
 echo -e "\n→ ${bold}Changing the owner of /usr/local/lib/node_modules to ${username}${normal}\n";
+sudo mkdir -p /usr/local/lib/node_modules
 sudo chown -R ${username} /usr/local/lib/node_modules
 
 ###################################################################
