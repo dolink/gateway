@@ -107,7 +107,7 @@ sudo adduser $USER gpio
 # Chown directories
 ###################################################################
 
-echo -e "\n→ ${bold}Changing the owner of /usr/local to ${username}${normal}\n";
+echo -e "\n→ ${bold}chowning /usr/local to ${username}${normal}\n";
 sudo chown -R ${username} /usr/local
 
 ###################################################################
