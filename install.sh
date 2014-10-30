@@ -119,6 +119,6 @@ su ${username} -c "npm install npd -g"
 echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
 
-echo -e "\n→ ${bold}Installing ollo...${normal}\n";
+echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
 npd install @bb:dolink/gw -u ${username}
 
