@@ -130,8 +130,8 @@ echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
 
 echo -e "\n→ ${bold}Installing ollo agent${normal}\n";
-npd install @bb:dolink/agent -u ${username}
+npdg install @bb:dolink/agent -U ${username}
 
 echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
-npd install @bb:dolink/gw -u ${username}
+npdg install @bb:dolink/gw -U ${username}
 
