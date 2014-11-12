@@ -115,7 +115,7 @@ cd wiringPi
 ###################################################################
 
 echo -e "\n→ ${bold}mkdir /usr/local/silo${normal}\n";
-sudo mkdirp -f /usr/local/silo
+sudo mkdir -p /usr/local/silo
 
 echo -e "\n→ ${bold}chowning /usr/local to ${username}${normal}\n";
 sudo chown -R ${username} /usr/local
