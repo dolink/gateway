@@ -111,7 +111,7 @@ cd wiringPi
 # sudo adduser $USER gpio
 
 ###################################################################
-# Chown directories
+# Prepare
 ###################################################################
 
 echo -e "\n→ ${bold}mkdir /usr/local/silo${normal}\n";
@@ -119,6 +119,10 @@ sudo mkdir -p /usr/local/silo
 
 echo -e "\n→ ${bold}chowning /usr/local to ${username}${normal}\n";
 sudo chown -R ${username} /usr/local
+
+echo -e "\n→ ${bold}removing ~/tmp${normal}\n";
+rm -fr ~/tmp
+rm -fr /home/${username}/tmp
 
 ###################################################################
 # Install global core node packages
