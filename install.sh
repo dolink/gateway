@@ -24,13 +24,13 @@ fi
 
 # Updating apt-get
 echo -e "\n→ ${bold}Updating apt-get${normal}\n";
-sudo apt-get update > /dev/null;
+sudo apt-get update; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing python-software-properties${normal}\n";
-sudo apt-get -qq -y -f -m install python-software-properties > /dev/null;
+sudo apt-get -qq -y -f -m install python-software-properties; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing ntpdate${normal}\n";
-sudo apt-get -qq -y -f -m install ntpdate > /dev/null;
+sudo apt-get -qq -y -f -m install ntpdate; # > /dev/null;
 sudo /etc/init.d/ntp stop
 
 # Add NTP Update as a daily cron job
@@ -51,38 +51,38 @@ sudo /etc/init.d/ntp start
 ###################################################################
 
 echo -e "\n→ ${bold}Installing avahi-daemon${normal}\n";
-sudo apt-get -qq -y -f -m  install avahi-daemon > /dev/null;
+sudo apt-get -qq -y -f -m  install avahi-daemon; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing upstart${normal}\n";
-echo 'Yes, do as I say!' | sudo apt-get -o DPkg::options=--force-remove-essential -y --force-yes install upstart > /dev/null;
+echo 'Yes, do as I say!' | sudo apt-get -o DPkg::options=--force-remove-essential -y --force-yes install upstart; # > /dev/null;
 
 # Download and install the Essential packages.
 echo -e "\n→ ${bold}Installing git${normal}\n";
-sudo apt-get -qq -y -f -m  install git > /dev/null;
+sudo apt-get -qq -y -f -m  install git; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing ruby1.9.1-dev${normal}\n";
-sudo apt-get -qq -y -f -m  install ruby1.9.1-dev > /dev/null;
+sudo apt-get -qq -y -f -m  install ruby1.9.1-dev; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing avrdude${normal}\n";
-sudo apt-get -qq -y -f -m  install avrdude > /dev/null;
+sudo apt-get -qq -y -f -m  install avrdude; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing psmisc${normal}\n";
-sudo apt-get -qq -y -f -m  install psmisc > /dev/null;
+sudo apt-get -qq -y -f -m  install psmisc; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing curl${normal}\n";
-sudo apt-get -qq -y -f -m  install curl > /dev/null;
+sudo apt-get -qq -y -f -m  install curl; # > /dev/null;
 
 # Install Sinatra
 echo -e "\n→ ${bold}Installing the sinatra gem${normal}\n";
-sudo gem install sinatra  --verbose --no-rdoc --no-ri > /dev/null;
+sudo gem install sinatra  --verbose --no-rdoc --no-ri; # > /dev/null;
 
 # Install getifaddrs
 echo -e "\n→ ${bold}Installing the getifaddrs gem${normal}\n";
-sudo gem install system-getifaddrs  --verbose --no-rdoc --no-ri > /dev/null;
+sudo gem install system-getifaddrs  --verbose --no-rdoc --no-ri; # > /dev/null;
 
 # Install gpac
 echo -e "\n→ ${bold}Installing gpac${normal}\n";
-sudo apt-get -qq -y -f -m install gpac > /dev/null;
+sudo apt-get -qq -y -f -m install gpac; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing node & npm${normal}\n";
 cd /tmp
