@@ -15,7 +15,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-if ${space_left} && [[ ${space_left} -lt 100000 ]]
+if [[ ${space_left} -lt 100000 ]]
 then
 	echo "${bold} In order to install the ollo software, you must have at least 100 megs of free space. Try running raspi-config and using the \"expand_rootfs\" option to free up some space ${normal}"
 	exit 1
