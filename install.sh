@@ -94,18 +94,28 @@ wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 sudo dpkg -i node_latest_armhf.deb > /dev/null;
 rm -f node_latest_armhf.*
 
-echo -e "\n→ ${bold}Installing gpio-admin${normal}\n";
+echo -e "\n→ ${bold}Installing wiring-pi${normal}\n";
 cd /tmp
-rm -fr quick2wire-gpio-admin
-git clone https://github.com/quick2wire/quick2wire-gpio-admin
-cd quick2wire-gpio-admin
-make
-make install
-sudo adduser $USER gpio
+rm -fr wiringPi
+git clone git://git.drogon.net/wiringPi
+cd wiringPi
+./build
+
+# echo -e "\n→ ${bold}Installing gpio-admin${normal}\n";
+# cd /tmp
+# rm -fr quick2wire-gpio-admin
+# git clone https://github.com/quick2wire/quick2wire-gpio-admin
+# cd quick2wire-gpio-admin
+# make
+# make install
+# sudo adduser $USER gpio
 
 ###################################################################
 # Chown directories
 ###################################################################
+
+echo -e "\n→ ${bold}mkdir /usr/local/silo${normal}\n";
+sudo mkdirp -f /usr/local/silo
 
 echo -e "\n→ ${bold}chowning /usr/local to ${username}${normal}\n";
 sudo chown -R ${username} /usr/local
@@ -118,6 +128,9 @@ su ${username} -c "npm install npd -g"
 
 echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
+
+echo -e "\n→ ${bold}Installing ollo agent${normal}\n";
+npd install @bb:dolink/agent -u ${username}
 
 echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
 npd install @bb:dolink/gw -u ${username}
