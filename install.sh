@@ -143,7 +143,7 @@ echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
 su ${username} -c "npdg install @bb:dolink/gw"
 
 echo -e "\n→ ${bold}Startup gateway${normal}\n";
-sudo gw install --uid ${username}
+sudo gw install
 
 echo -e "\n→ ${bold}Starting gateway${normal}\n";
-su ${username} -c "gw start"
+sudo gw start
