@@ -128,19 +128,19 @@ rm -fr /home/${username}/tmp
 # Install global core node packages
 ###################################################################
 echo -e "\n→ ${bold}[Node] Installing npd${normal}\n";
-sudo su ${username} -c "npm install npd -g"
+su ${username} -c "npm install npd -g"
 
 echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
-sudo su ${username} -c "npm install pm2 -g"
+su ${username} -c "npm install pm2 -g"
 
 echo -e "\n→ ${bold}Installing ollo agent${normal}\n";
-sudo su ${username} -c "npdg install @bb:dolink/agent"
+su ${username} -c "npdg install @bb:dolink/agent"
 
 echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
-sudo su ${username} -c "npdg install @bb:dolink/gw"
+su ${username} -c "npdg install @bb:dolink/gw"
 
 echo -e "\n→ ${bold}Startup gateway${normal}\n";
-sudo gw install
+sudo gw install --uid ${username}
 
 echo -e "\n→ ${bold}Starting gateway${normal}\n";
-sudo su ${username} -c "gw start"
+su ${username} -c "gw start"
