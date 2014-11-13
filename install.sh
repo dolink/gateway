@@ -136,6 +136,9 @@ su ${username} -c "npm install pm2 -g"
 echo -e "\n→ ${bold}Installing ollo agent${normal}\n";
 su ${username} -c "npdg install @bb:dolink/agent"
 
+echo -e "\n→ ${bold}Installing ollo gateway wifi console${normal}\n";
+su ${username} -c "npdg install @bb:dolink/gw-wifi"
+
 echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
 su ${username} -c "npdg install @bb:dolink/gw"
 
