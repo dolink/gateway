@@ -101,14 +101,15 @@ git clone git://git.drogon.net/wiringPi
 cd wiringPi
 ./build
 
-# echo -e "\n→ ${bold}Installing gpio-admin${normal}\n";
-# cd /tmp
-# rm -fr quick2wire-gpio-admin
-# git clone https://github.com/quick2wire/quick2wire-gpio-admin
-# cd quick2wire-gpio-admin
-# make
-# make install
-# sudo adduser $USER gpio
+echo -e "\n→ ${bold}Installing avrdude-rpi${normal}\n";
+cd /tmp
+rm -fr avrdude-rpi
+git clone https://github.com/dolink/avrdude-rpi
+cd avrdude-rpi
+cp autoreset /usr/bin
+cp avrdude-autoreset /usr/bin
+mv /usr/bin/avrdude /usr/bin/avrdude-original
+ln -s /usr/bin/avrdude-autoreset /usr/bin/avrdude
 
 ###################################################################
 # Prepare
