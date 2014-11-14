@@ -113,10 +113,10 @@ cp avrdude-autoreset /usr/bin
 if [ ! -f /usr/bin/avrdude-original ];
 then
     mv /usr/bin/avrdude /usr/bin/avrdude-original
+    ln -s /usr/bin/avrdude-autoreset /usr/bin/avrdude
 else
     echo "avrdude-original exists"
 fi
-ln -s /usr/bin/avrdude-autoreset /usr/bin/avrdude
 
 ###################################################################
 # Prepare
