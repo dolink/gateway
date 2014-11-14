@@ -101,6 +101,7 @@ git clone git://git.drogon.net/wiringPi
 cd wiringPi
 ./build
 
+
 echo -e "\n→ ${bold}Installing avrdude-rpi${normal}\n";
 cd /tmp
 rm -fr avrdude-rpi
@@ -108,7 +109,13 @@ git clone https://github.com/dolink/avrdude-rpi
 cd avrdude-rpi
 cp autoreset /usr/bin
 cp avrdude-autoreset /usr/bin
-mv /usr/bin/avrdude /usr/bin/avrdude-original
+
+if [ ! -f /usr/bin/avrdude-original ];
+then
+    mv /usr/bin/avrdude /usr/bin/avrdude-original
+else
+    echo "avrdude-original exists"
+fi
 ln -s /usr/bin/avrdude-autoreset /usr/bin/avrdude
 
 ###################################################################
