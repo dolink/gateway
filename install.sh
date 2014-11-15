@@ -107,16 +107,7 @@ cd /tmp
 rm -fr avrdude-rpi
 git clone https://github.com/dolink/avrdude-rpi
 cd avrdude-rpi
-cp autoreset /usr/bin
-cp avrdude-autoreset /usr/bin
-
-if [ ! -f /usr/bin/avrdude-original ];
-then
-    mv /usr/bin/avrdude /usr/bin/avrdude-original
-    ln -s /usr/bin/avrdude-autoreset /usr/bin/avrdude
-else
-    echo "avrdude-original exists"
-fi
+cp autoreset avrdude /usr/local/bin
 
 ###################################################################
 # Prepare
