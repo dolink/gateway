@@ -72,6 +72,11 @@ sudo apt-get -qq -y -f -m  install psmisc; # > /dev/null;
 echo -e "\n→ ${bold}Installing curl${normal}\n";
 sudo apt-get -qq -y -f -m  install curl; # > /dev/null;
 
+echo -e "\n→ ${bold}Using source http://rubygems.org for rubygems${normal}\n";
+sudo gem sources -r https://rubygems.org
+sudo gem sources -r http://rubygems.org
+sudo gem sources -a http://rubygems.org
+
 # Install Sinatra
 echo -e "\n→ ${bold}Installing the sinatra gem${normal}\n";
 sudo gem install sinatra  --verbose --no-rdoc --no-ri; # > /dev/null;
