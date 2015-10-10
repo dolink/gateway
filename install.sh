@@ -90,16 +90,16 @@ echo -e "\n→ ${bold}Installing gpac${normal}\n";
 sudo apt-get -qq -y -f -m install gpac; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing node & npm${normal}\n";
-curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-sudo apt-get update; # > /dev/null;
-sudo apt-get -qq -y -f -m  install nodejs; # > /dev/null;
+# curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+# sudo apt-get update; # > /dev/null;
+# sudo apt-get -qq -y -f -m  install nodejs; # > /dev/null;
+
+wget http://conoroneill.net.s3.amazonaws.com/wp-content/uploads/2015/09/node-v0.12.7-linux-arm-v6.tar.gz
+cd /usr/local
+sudo tar xzvf ~/node-v0.12.7-linux-arm-v6.tar.gz --strip=1
 
 # cd /tmp
 # rm -f node_latest_armhf.*
-# wget http://nodejs.org/dist/latest/node-v0.10.26-linux-arm-pi.tar.gz
-# cd /usr/local
-# sudo tar xzvf ~/node-v0.10.26-linux-arm-pi.tar.gz  --strip=1
-
 # wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 # sudo dpkg -i node_latest_armhf.deb > /dev/null;
 # rm -f node_latest_armhf.*
