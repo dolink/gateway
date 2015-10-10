@@ -1,4 +1,4 @@
-installer
+Installer
 =========
 
-Installer for ollo gateway.
+Installer for gateway.

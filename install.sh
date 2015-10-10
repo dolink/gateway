@@ -85,14 +85,19 @@ echo -e "\n→ ${bold}Installing gpac${normal}\n";
 sudo apt-get -qq -y -f -m install gpac; # > /dev/null;
 
 echo -e "\n→ ${bold}Installing node & npm${normal}\n";
-cd /tmp
-rm -f node_latest_armhf.*
+curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+sudo apt-get update; # > /dev/null;
+sudo apt-get -qq -y -f -m  install nodejs; # > /dev/null;
+
+# cd /tmp
+# rm -f node_latest_armhf.*
 # wget http://nodejs.org/dist/latest/node-v0.10.26-linux-arm-pi.tar.gz
 # cd /usr/local
 # sudo tar xzvf ~/node-v0.10.26-linux-arm-pi.tar.gz  --strip=1
-wget http://node-arm.herokuapp.com/node_latest_armhf.deb
-sudo dpkg -i node_latest_armhf.deb > /dev/null;
-rm -f node_latest_armhf.*
+
+# wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+# sudo dpkg -i node_latest_armhf.deb > /dev/null;
+# rm -f node_latest_armhf.*
 
 echo -e "\n→ ${bold}Installing wiring-pi${normal}\n";
 cd /tmp
@@ -132,13 +137,13 @@ su ${username} -c "npm install npd -g"
 echo -e "\n→ ${bold}[Node] Installing pm2${normal}\n";
 su ${username} -c "npm install pm2 -g"
 
-echo -e "\n→ ${bold}Installing ollo agent${normal}\n";
+echo -e "\n→ ${bold}Installing agent${normal}\n";
 su ${username} -c "npdg install @bb:dolink/agent"
 
-echo -e "\n→ ${bold}Installing ollo gateway wifi console${normal}\n";
+echo -e "\n→ ${bold}Installing gateway wifi console${normal}\n";
 su ${username} -c "npdg install @bb:dolink/gw-wifi"
 
-echo -e "\n→ ${bold}Installing ollo gateway${normal}\n";
+echo -e "\n→ ${bold}Installing gateway${normal}\n";
 su ${username} -c "npdg install @bb:dolink/gw"
 
 echo -e "\n→ ${bold}Startup gateway${normal}\n";
