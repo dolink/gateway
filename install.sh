@@ -7,7 +7,7 @@ set -e
 
 bold=`tput bold`;
 normal=`tput sgr0`;
-space_left=`df | grep rootfs | awk '{print $3}'`;
+space_left=`df | grep /dev/root | awk '{print $3}'`;
 username=`users | awk '{print $1}'`;
 
 if [[ $EUID -ne 0 ]]; then
